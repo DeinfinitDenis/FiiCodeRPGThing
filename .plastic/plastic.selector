@@ -1,4 +1,0 @@
-repository "FiiCodeRPG@sechelarudeni@cloud"
-  path "/"
-    br "/main"
-    co "/main"
