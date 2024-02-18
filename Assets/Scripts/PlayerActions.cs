@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     //player movement
+
+    ////////////////////////////ce a adaugat denis
+    private AudioSource audioSource;//Walk sounds chestie nebunie
+    ///////////////////////////////
+
     private Rigidbody2D mainplayer;
     public float moveHorizontal, moveVertical;
     public float speed = 10f;
@@ -18,6 +23,7 @@ public class PlayerActions : MonoBehaviour
     public GameObject arrow;
     public float arrowSpeed = 40f;
 
+    //other
     public int weaponslot = 1;
     public int dx, dy;
 
@@ -27,6 +33,11 @@ public class PlayerActions : MonoBehaviour
         mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 180f);
         dx = 0;
         dy = -1;
+        ////////////////////ce a adaugat denis
+        audioSource = gameObject.GetComponent<AudioSource>();
+        //slashBox.enabled = false;
+        //slashSprite.enabled = false;
+        //////////////////////////////////////////////////////
     }
 
     
@@ -65,6 +76,12 @@ public class PlayerActions : MonoBehaviour
             mainplayer.velocity = movement * speed;
         }
         else mainplayer.velocity = new Vector2(0f, 0f);
+
+        ////////////////////////////ce a adaugat denis
+        if((movement.x != 0 || movement.y != 0 )&& !audioSource.isPlaying)audioSource.Play();
+        else if((movement.x == 0 && movement.y == 0) && audioSource.isPlaying)audioSource.Stop();
+        mainplayer.velocity = movement * speed;
+        //////////////////////////////////
     }
 
     void DirectionCode(){
