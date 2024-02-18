@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
+
+    private AudioSource audioSource;//Walk sounds chestie nebunie
+
     private Rigidbody2D mainplayer;
     public float moveHorizontal, moveVertical;
     public float speed = 5f;
@@ -14,6 +17,7 @@ public class PlayerActions : MonoBehaviour
 
     void Start(){
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         slashBox.enabled = false;
         slashSprite.enabled = false;
     }
@@ -33,6 +37,8 @@ public class PlayerActions : MonoBehaviour
     void FixedUpdate(){
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement.Normalize();
+        if((movement.x != 0 || movement.y != 0 )&& !audioSource.isPlaying)audioSource.Play();
+        else if((movement.x == 0 && movement.y == 0) && audioSource.isPlaying)audioSource.Stop();
         mainplayer.velocity = movement * speed;
     }
 
