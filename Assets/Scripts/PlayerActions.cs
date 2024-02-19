@@ -33,11 +33,8 @@ public class PlayerActions : MonoBehaviour
         mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 180f);
         dx = 0;
         dy = -1;
-        ////////////////////ce a adaugat denis
+        
         audioSource = gameObject.GetComponent<AudioSource>();
-        //slashBox.enabled = false;
-        //slashSprite.enabled = false;
-        //////////////////////////////////////////////////////
     }
 
     
@@ -111,20 +108,21 @@ public class PlayerActions : MonoBehaviour
     void SlashCode(){
         StartCoroutine(SlashDelay());
 
+        /*
         float rotangle;
         if(dx == -1 || dx == 1)
             rotangle = 50f;
         else rotangle = 0f;
-
+        */
         slash.transform.position = new Vector2(mainplayer.transform.position.x + dx, mainplayer.transform.position.y + dy);
-        slash.transform.eulerAngles = new Vector3(rotangle, 0f, mainplayer.rotation);
+        slash.transform.eulerAngles = new Vector3(0f, 0f, mainplayer.rotation);
         
     }
     
     IEnumerator SlashDelay(){
         isSlash = true;
         slash.SetActive(true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.20f);
         slash.SetActive(false);
         isSlash = false;
 
