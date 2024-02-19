@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
@@ -35,6 +36,8 @@ public class PlayerActions : MonoBehaviour
         dy = -1;
         
         audioSource = gameObject.GetComponent<AudioSource>();
+        
+        SoundManager.Instance.PlaySong(song.forestTheme);//Asa dai play la melodii
     }
 
     
