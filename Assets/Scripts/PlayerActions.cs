@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
@@ -38,6 +39,7 @@ public class PlayerActions : MonoBehaviour
         //slashBox.enabled = false;
         //slashSprite.enabled = false;
         //////////////////////////////////////////////////////
+        SoundManager.Instance.PlaySong(song.forestTheme);//Asa dai play la melodii
     }
 
     
