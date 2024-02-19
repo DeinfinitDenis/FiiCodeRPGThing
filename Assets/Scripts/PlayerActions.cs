@@ -86,12 +86,12 @@ public class PlayerActions : MonoBehaviour
 
     void DirectionCode(){
         if(Input.GetKey(KeyCode.A)){
-            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, -90f);
+            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 90f);
             dx = -1;
             dy = 0;
         }
         if(Input.GetKey(KeyCode.D)){
-            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 90f);
+            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, -90f);
             dx = 1;
             dy = 0;
         }
@@ -110,15 +110,21 @@ public class PlayerActions : MonoBehaviour
     //Slash Skill
     void SlashCode(){
         StartCoroutine(SlashDelay());
+
+        float rotangle;
+        if(dx == -1 || dx == 1)
+            rotangle = 50f;
+        else rotangle = 0f;
+
         slash.transform.position = new Vector2(mainplayer.transform.position.x + dx, mainplayer.transform.position.y + dy);
-        slash.transform.eulerAngles = new Vector3(0f, 0f, mainplayer.rotation);
+        slash.transform.eulerAngles = new Vector3(rotangle, 0f, mainplayer.rotation);
         
     }
     
     IEnumerator SlashDelay(){
         isSlash = true;
         slash.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         slash.SetActive(false);
         isSlash = false;
 
