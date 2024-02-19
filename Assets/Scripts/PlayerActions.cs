@@ -14,6 +14,7 @@ public class PlayerActions : MonoBehaviour
     private Rigidbody2D mainplayer;
     public float moveHorizontal, moveVertical;
     public float speed = 10f;
+    public Animator playerAnim;
 
     //slash skill
     public bool isSlash = false;
@@ -26,45 +27,63 @@ public class PlayerActions : MonoBehaviour
 
     //other
     public int weaponslot = 1;
-    public int dx, dy;
 
     void Start(){
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
         slash.SetActive(false);
-        mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 180f);
-        dx = 0;
-        dy = -1;
-        
+        playerAnim.SetInteger("weaponslot", 1);
         audioSource = gameObject.GetComponent<AudioSource>();
-        
         SoundManager.Instance.PlaySong(song.forestTheme);//Asa dai play la melodii
     }
 
     
     void Update(){
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
+        if(!playerAnim.GetBool("isAttack")){
+            moveHorizontal = Input.GetAxisRaw("Horizontal");
+            moveVertical = Input.GetAxisRaw("Vertical");
+        }
 
-        if(!isSlash)
-            DirectionCode();
+        playerAnim.SetFloat("X", moveHorizontal);
+        playerAnim.SetFloat("Y", moveVertical);
+
+        if(moveHorizontal == 0 && moveVertical == 0){
+            playerAnim.SetBool("isMoving", false);
+            playerAnim.SetBool("isIdle", true);
+        }
+        else{
+            playerAnim.SetBool("isMoving", true);
+            playerAnim.SetBool("isIdle", false);
+        }
+
+        if(playerAnim.GetBool("isMoving")){
+            playerAnim.SetFloat("direction mem x", moveHorizontal);
+
+            if(playerAnim.GetFloat("direction mem x") != 0f)
+                playerAnim.SetFloat("direction mem y", 0f);
+            else playerAnim.SetFloat("direction mem y", moveVertical);
+        }
         
         if(Input.GetMouseButtonDown(0)){
-            if(weaponslot == 1){
+            if(weaponslot == 1 && !playerAnim.GetBool("isAttack")){
+                playerAnim.SetBool("isAttack", true);
                 if(!isSlash)
                     SlashCode();    
             }
-            else{
-                if(!isArrow){
-                    ArrowCode();
-                }
-                    
+            else if(weaponslot == 2 && !playerAnim.GetBool("isAttack")){
+                playerAnim.SetBool("isAttack", true);
+                if(!isArrow)
+                    StartCoroutine(ArrowDelay());
             }
         }
 
-        if(Input.GetKey(KeyCode.Alpha1))
+        if(Input.GetKey(KeyCode.Alpha1)){
             weaponslot = 1;
-        else if(Input.GetKey(KeyCode.Alpha2))
+            playerAnim.SetInteger("weaponslot", weaponslot);
+        }
+        else if(Input.GetKey(KeyCode.Alpha2)){
             weaponslot = 2;
+            playerAnim.SetInteger("weaponslot", weaponslot);
+        }
 
     }
 
@@ -72,7 +91,7 @@ public class PlayerActions : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement.Normalize();
 
-        if(!isSlash){
+        if(!isSlash && playerAnim.GetBool("isAttack") == false){
             mainplayer.velocity = movement * speed;
         }
         else mainplayer.velocity = new Vector2(0f, 0f);
@@ -84,65 +103,64 @@ public class PlayerActions : MonoBehaviour
         //////////////////////////////////
     }
 
-    void DirectionCode(){
-        if(Input.GetKey(KeyCode.A)){
-            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 90f);
-            dx = -1;
-            dy = 0;
-        }
-        if(Input.GetKey(KeyCode.D)){
-            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, -90f);
-            dx = 1;
-            dy = 0;
-        }
-        if(Input.GetKey(KeyCode.W)){
-            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            dx = 0;
-            dy = 1;
-        }
-        if(Input.GetKey(KeyCode.S)){
-            mainplayer.transform.eulerAngles = new Vector3(0f, 0f, 180f);
-            dx = 0;
-            dy = -1;
-        }
-    }
-
     //Slash Skill
     void SlashCode(){
         StartCoroutine(SlashDelay());
-
-        /*
-        float rotangle;
-        if(dx == -1 || dx == 1)
-            rotangle = 50f;
-        else rotangle = 0f;
-        */
-        slash.transform.position = new Vector2(mainplayer.transform.position.x + dx, mainplayer.transform.position.y + dy);
-        slash.transform.eulerAngles = new Vector3(0f, 0f, mainplayer.rotation);
         
+        float dirx = playerAnim.GetFloat("direction mem x");
+        float diry = playerAnim.GetFloat("direction mem y");
+
+        if(dirx < 0)
+            dirx += 0.3f;
+        else if(dirx > 0)
+            dirx -= 0.3f;
+
+        if(diry < 0)
+            diry += 0.3f;
+        else if(diry > 0)
+            diry -= 0.3f;
+
+        slash.transform.position = new Vector2(mainplayer.transform.position.x + dirx, mainplayer.transform.position.y + diry);    
     }
     
     IEnumerator SlashDelay(){
         isSlash = true;
         slash.SetActive(true);
-        yield return new WaitForSeconds(0.20f);
+        yield return new WaitForSeconds(0.3f);
         slash.SetActive(false);
         isSlash = false;
+        playerAnim.SetBool("isAttack", false);
 
     }
 
-    //Arrow
+     //Arrow
     void ArrowCode(){
+
+        float dx = playerAnim.GetFloat("direction mem x");
+        float dy = playerAnim.GetFloat("direction mem y");
+        float rotaux;
+        
+        if(dy != 0f){
+            if(dy > 0f)
+                rotaux = 0f;
+            else rotaux = 180f;    
+        }
+        else rotaux = -dx * 90f;
+    
         Vector2 direction = new Vector2(dx, dy);
-        var harrow = Instantiate(arrow, mainplayer.transform.position, mainplayer.transform.rotation);
+        var harrow = Instantiate(arrow, mainplayer.transform.position, Quaternion.Euler(new Vector3(0f, 0f, rotaux)));
         harrow.GetComponent<Rigidbody2D>().velocity = direction * arrowSpeed;
-        StartCoroutine(ArrowDelay());
         Destroy(harrow, 0.7f);
+
     }
 
     IEnumerator ArrowDelay(){
         isArrow = true;
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.3f);
         isArrow = false;
+        playerAnim.SetBool("isAttack", false);
+
+        ArrowCode();
     }
 }
+
