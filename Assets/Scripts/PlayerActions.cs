@@ -7,10 +7,6 @@ public class PlayerActions : MonoBehaviour
 {
     //player movement
 
-    ////////////////////////////ce a adaugat denis
-    private AudioSource audioSource;//Walk sounds chestie nebunie
-    ///////////////////////////////
-
     private Rigidbody2D mainplayer;
     public float moveHorizontal, moveVertical;
     public float speed = 10f;
@@ -26,18 +22,26 @@ public class PlayerActions : MonoBehaviour
     public float arrowSpeed = 40f;
 
     //other
-    public int weaponslot = 1;
+    public static int weaponslot = 1;
+    public SpriteRenderer buttonSprite;
+    public  bool canInteract = false;
+    public  bool isDoor = false;
 
     void Start(){
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
         slash.SetActive(false);
         playerAnim.SetInteger("weaponslot", 1);
-        audioSource = gameObject.GetComponent<AudioSource>();
-        SoundManager.Instance.PlaySong(song.forestTheme);//Asa dai play la melodii
+        playerAnim.SetFloat("direction mem y", -1f);
     }
 
     
     void Update(){
+        if(Input.GetKeyDown(KeyCode.E) && canInteract)
+            Debug.Log("am apasat boss hahaha");
+
+        if(Input.GetKeyDown(KeyCode.E) && isDoor)
+            Debug.Log("este o usa nenea");   
+
         if(!playerAnim.GetBool("isAttack")){
             moveHorizontal = Input.GetAxisRaw("Horizontal");
             moveVertical = Input.GetAxisRaw("Vertical");
@@ -95,12 +99,6 @@ public class PlayerActions : MonoBehaviour
             mainplayer.velocity = movement * speed;
         }
         else mainplayer.velocity = new Vector2(0f, 0f);
-
-        ////////////////////////////ce a adaugat denis
-        if((movement.x != 0 || movement.y != 0 )&& !audioSource.isPlaying)audioSource.Play();
-        else if((movement.x == 0 && movement.y == 0) && audioSource.isPlaying)audioSource.Stop();
-        mainplayer.velocity = movement * speed;
-        //////////////////////////////////
     }
 
     //Slash Skill
@@ -162,5 +160,30 @@ public class PlayerActions : MonoBehaviour
 
         ArrowCode();
     }
+
+    /*
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.CompareTag("DiagButton")){
+            buttonSprite.enabled = true;
+            canInteract = true;
+        }
+
+        if(other.gameObject.CompareTag("DoorButton")){
+            buttonSprite.enabled = true;
+            isDoor = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other){
+        if(other.gameObject.CompareTag("DiagButton")){
+            buttonSprite.enabled = false;
+            canInteract = false;
+        }
+
+        if(other.gameObject.CompareTag("DoorButton")){
+            buttonSprite.enabled = false;
+            isDoor = false;
+        }
+    }*/
 }
 
