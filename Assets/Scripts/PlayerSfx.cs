@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSfx : MonoBehaviour
 {
-    public AudioSource bowSfx, playerFootsteps;
+    public AudioSource playerFootsteps;
     public Animator playerAnim;
 
     void Update()

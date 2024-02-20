@@ -23,9 +23,6 @@ public class PlayerActions : MonoBehaviour
 
     //other
     public static int weaponslot = 1;
-    public SpriteRenderer buttonSprite;
-    public  bool canInteract = false;
-    public  bool isDoor = false;
 
     void Start(){
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
@@ -35,13 +32,7 @@ public class PlayerActions : MonoBehaviour
     }
 
     
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.E) && canInteract)
-            Debug.Log("am apasat boss hahaha");
-
-        if(Input.GetKeyDown(KeyCode.E) && isDoor)
-            Debug.Log("este o usa nenea");   
-
+    void Update(){   
         if(!playerAnim.GetBool("isAttack")){
             moveHorizontal = Input.GetAxisRaw("Horizontal");
             moveVertical = Input.GetAxisRaw("Vertical");
@@ -160,30 +151,5 @@ public class PlayerActions : MonoBehaviour
 
         ArrowCode();
     }
-
-    /*
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.CompareTag("DiagButton")){
-            buttonSprite.enabled = true;
-            canInteract = true;
-        }
-
-        if(other.gameObject.CompareTag("DoorButton")){
-            buttonSprite.enabled = true;
-            isDoor = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.CompareTag("DiagButton")){
-            buttonSprite.enabled = false;
-            canInteract = false;
-        }
-
-        if(other.gameObject.CompareTag("DoorButton")){
-            buttonSprite.enabled = false;
-            isDoor = false;
-        }
-    }*/
 }
 
