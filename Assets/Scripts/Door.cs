@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     public SpriteRenderer buttonSprite;
     public Animator fadeAnim;
     public bool canInteract = false;
-    public int doorNumber;
+    public int nextScene;
 
     void Start(){
         buttonSprite.enabled = false;
@@ -38,6 +38,6 @@ public class Door : MonoBehaviour
 
     IEnumerator SceneLoadDelay(){
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(doorNumber);
+        SceneManager.LoadScene(nextScene);
     }
 }
