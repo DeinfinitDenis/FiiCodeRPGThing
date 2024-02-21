@@ -3768,6 +3768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackGround Music
       objectReference: {fileID: 0}
+    - target: {fileID: 8316213672604668883, guid: b2a5fc6f22a1ea74dac13d982b56b87a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.268
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
