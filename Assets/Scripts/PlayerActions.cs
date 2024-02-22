@@ -28,7 +28,7 @@ public class PlayerActions : MonoBehaviour
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
         slash.SetActive(false);
         playerAnim.SetInteger("weaponslot", 1);
-        playerAnim.SetFloat("direction mem y", -1f);
+        weaponslot = 1;
     }
 
     

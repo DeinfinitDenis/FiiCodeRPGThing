@@ -9,12 +9,13 @@ public class CentralField : MonoBehaviour
 
     void Start()
     {
-        if(AwakeningZone.lastScene == 1){
+        if(AwakeningZone.lastScene == "Cave 1"){
             player.transform.position = new Vector2(7.7f, -1.9f);
             playerAnim.SetFloat("direction mem x", -1f);
+            playerAnim.SetFloat("direction mem y", 0f);
         }
 
-        AwakeningZone.lastScene = 2;
+        AwakeningZone.lastScene = "Central Field";
     }
 
 }

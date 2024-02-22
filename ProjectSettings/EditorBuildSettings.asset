@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/AwakeningSite.unity
     guid: fc4a2b676669fad44b1b006471db1518
   - enabled: 1
-    path: Assets/Scenes/Cave 1.unity
+    path: Assets/Scenes/Cave1/Cave 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Cave1/Cave1Cell.unity
+    guid: 68c3e6f3c2d698c468917c01adefce53
   - enabled: 1
     path: Assets/Scenes/Central Field.unity
     guid: eccbc88ea8d008949aa3e5e035687f01
+  - enabled: 1
+    path: Assets/Scenes/GreatTreeSite.unity
+    guid: 38830ed3834456c4ba5614ab2ddb3618
+  - enabled: 1
+    path: Assets/Scenes/Castle Field.unity
+    guid: 322f6204242d18d4e85fe2ce5ed1e9a7
   m_configObjects: {}
