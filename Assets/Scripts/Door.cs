@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     public SpriteRenderer buttonSprite;
     public Animator fadeAnim;
     public bool canInteract = false;
-    public int nextScene;
+    public string nextScene;
 
     void Start(){
         buttonSprite.enabled = false;
