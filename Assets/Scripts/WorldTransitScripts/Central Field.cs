@@ -15,6 +15,12 @@ public class CentralField : MonoBehaviour
             playerAnim.SetFloat("direction mem y", 0f);
         }
 
+        else if(AwakeningZone.lastScene == "GreatTreeSite"){
+            player.transform.position = new Vector2(21.3f, 51.3f);
+            playerAnim.SetFloat("direction mem x", -1f);
+            playerAnim.SetFloat("direction mem y", 0f);
+        }
+
         AwakeningZone.lastScene = "Central Field";
     }
 
