@@ -67625,17 +67625,29 @@ PrefabInstance:
     - target: {fileID: 7700269151293770850, guid: 0b3368d2823ec5747ab88bbeb4524ede,
         type: 3}
       propertyPath: m_BackGroundColor.b
+<<<<<<< Updated upstream
       value: 0.10588236
+=======
+      value: 0.10196079
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7700269151293770850, guid: 0b3368d2823ec5747ab88bbeb4524ede,
         type: 3}
       propertyPath: m_BackGroundColor.g
+<<<<<<< Updated upstream
       value: 0.078431375
+=======
+      value: 0.07450981
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7700269151293770850, guid: 0b3368d2823ec5747ab88bbeb4524ede,
         type: 3}
       propertyPath: m_BackGroundColor.r
+<<<<<<< Updated upstream
       value: 0.14901961
+=======
+      value: 0.14509805
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
