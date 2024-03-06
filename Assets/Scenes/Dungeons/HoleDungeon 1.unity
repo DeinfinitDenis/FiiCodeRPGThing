@@ -213,7 +213,7 @@ PrefabInstance:
         type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 870500975}
+      objectReference: {fileID: 0}
     - target: {fileID: 1734521456650477173, guid: ca2c2e573f5a4a249811467629d924e3,
         type: 3}
       propertyPath: m_IsActive
@@ -70324,6 +70324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DungeonDoorSilva
       objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.32
+      objectReference: {fileID: 0}
     - target: {fileID: 5434607927535519417, guid: 48a006124765af14da1b0857a1ba7157,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70339,17 +70344,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48a006124765af14da1b0857a1ba7157, type: 3}
---- !u!4 &774462492 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1920657835875119675, guid: 48a006124765af14da1b0857a1ba7157,
-    type: 3}
-  m_PrefabInstance: {fileID: 774462491}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &870500975 stripped
+--- !u!1 &801882351 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4390800563269319445, guid: 48a006124765af14da1b0857a1ba7157,
+  m_CorrespondingSourceObject: {fileID: 4305576393505188651, guid: 48a006124765af14da1b0857a1ba7157,
     type: 3}
-  m_PrefabInstance: {fileID: 774462491}
+  m_PrefabInstance: {fileID: 7504625143566008865}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &872994339
 PrefabInstance:
@@ -70562,6 +70561,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &944494161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+    type: 3}
+  m_PrefabInstance: {fileID: 774462491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &968174382
 GameObject:
   m_ObjectHideFlags: 0
@@ -72810,23 +72815,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1284614554}
+  - {fileID: 1801377531}
   - {fileID: 1590954216}
-  - {fileID: 774462492}
+  - {fileID: 944494161}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1284614550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4390800563269319445, guid: 48a006124765af14da1b0857a1ba7157,
-    type: 3}
-  m_PrefabInstance: {fileID: 6269034953396136461}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1284614554 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1920657835875119675, guid: 48a006124765af14da1b0857a1ba7157,
-    type: 3}
-  m_PrefabInstance: {fileID: 6269034953396136461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287915942
 GameObject:
   m_ObjectHideFlags: 0
@@ -72974,6 +72967,79 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6354561, y: 0.51253873}
   m_EdgeRadius: 0
+--- !u!1001 &1455810364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1076566209601249329, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_Name
+      value: DungeonKey (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144028590523038254, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 801882351}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5211859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.118643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca2c2e573f5a4a249811467629d924e3, type: 3}
 --- !u!4 &1590954216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
@@ -73185,6 +73251,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1801377531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+    type: 3}
+  m_PrefabInstance: {fileID: 6269034953396136461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1885676710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73251,29 +73323,17 @@ PrefabInstance:
     - target: {fileID: 7700269151293770850, guid: 0b3368d2823ec5747ab88bbeb4524ede,
         type: 3}
       propertyPath: m_BackGroundColor.b
-<<<<<<< Updated upstream
       value: 0.10588236
-=======
-      value: 0.10196079
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7700269151293770850, guid: 0b3368d2823ec5747ab88bbeb4524ede,
         type: 3}
       propertyPath: m_BackGroundColor.g
-<<<<<<< Updated upstream
       value: 0.078431375
-=======
-      value: 0.07450981
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7700269151293770850, guid: 0b3368d2823ec5747ab88bbeb4524ede,
         type: 3}
       propertyPath: m_BackGroundColor.r
-<<<<<<< Updated upstream
       value: 0.14901961
-=======
-      value: 0.14509805
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73360,6 +73420,79 @@ PrefabInstance:
       propertyPath: m_Name
       value: DungeonDoorRed
       objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48a006124765af14da1b0857a1ba7157, type: 3}
+--- !u!1001 &7504625143566008865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4305576393505188651, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_Name
+      value: DungeonDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047110595126416434, guid: 48a006124765af14da1b0857a1ba7157,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73382,7 +73515,7 @@ PrefabInstance:
         type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 1284614550}
+      objectReference: {fileID: 0}
     - target: {fileID: 3355988723077261331, guid: ca2c2e573f5a4a249811467629d924e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73452,3 +73585,5 @@ SceneRoots:
   - {fileID: 1770712560}
   - {fileID: 1287915945}
   - {fileID: 311897414}
+  - {fileID: 7504625143566008865}
+  - {fileID: 1455810364}
