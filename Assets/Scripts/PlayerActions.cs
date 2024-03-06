@@ -23,7 +23,7 @@ public class PlayerActions : MonoBehaviour
 
     //other
     public static int weaponslot = 1;
-
+    
     void Start(){
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
         slash.SetActive(false);
