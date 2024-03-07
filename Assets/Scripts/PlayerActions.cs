@@ -23,16 +23,33 @@ public class PlayerActions : MonoBehaviour
 
     //other
     public static int weaponslot = 1;
-    
+    public bool isEscape;
+    public GameObject playerMenu;
+
     void Start(){
         mainplayer = gameObject.GetComponent<Rigidbody2D>();
         slash.SetActive(false);
         playerAnim.SetInteger("weaponslot", 1);
         weaponslot = 1;
+        isEscape = false;
+        playerMenu.SetActive(false);
     }
 
     
-    void Update(){   
+    void Update(){  
+        //enter si exit menu & upgrades
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            if(isEscape){
+                isEscape = false;
+                playerMenu.SetActive(false);
+            }
+            else{
+                isEscape = true;
+                playerMenu.SetActive(true);
+            }
+        }
+
+        //altele
         if(!playerAnim.GetBool("isAttack")){
             moveHorizontal = Input.GetAxisRaw("Horizontal");
             moveVertical = Input.GetAxisRaw("Vertical");
@@ -58,7 +75,7 @@ public class PlayerActions : MonoBehaviour
             else playerAnim.SetFloat("direction mem y", moveVertical);
         }
         
-        if(Input.GetMouseButtonDown(0)){
+        if(Input.GetMouseButtonDown(0) && !isEscape){
             if(weaponslot == 1 && !playerAnim.GetBool("isAttack")){
                 playerAnim.SetBool("isAttack", true);
                 if(!isSlash)
